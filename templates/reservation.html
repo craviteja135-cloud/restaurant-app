@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Book a Table</h2>
+    
+    {% if success %}
+    <div id="success-message" class="alert alert-success text-center"> Table booked succesfully</div>
+    {% endif %}
+
+    {% if error %}
+    <div id="error-message" class="alert alert-danger text-center">This time slot is already booked!</div>
+    {% endif %}
+
+    <script>
+    setTimeout(function () {
+        const successMsg = document.getElementById("success-message");
+        const errorMsg = document.getElementById("error-message");
+
+        if(successMsg) {
+            successMsg.style.display = "none";
+        }
+
+        if(errorMsg) {
+            errorMsg.style.display = "none";
+        }
+
+window.history.replaceState({}, 
+    document.title, "/reservation/");
+
+    }, 3000);
+</script>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+        <input type="text" name="phone" class="form-control mb-3" placeholder="Phone Number" required>
+        <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
+        <input type="date" name="date" class="form-control mb-3" required>
+        <input type="time" name="time" class="form-control mb-3" required>
+        <input type="number" name="guests" class="form-control mb-3" placeholder="Number of Guests" required>
+
+        <button class="btn btn-warning">Reserve Now</button>
+    </form>
+</div>
+
+
+<script>
+    setTimeout(function () {
+        const msg = document.getElementById("success-message");
+
+        if(msg) {
+            msg.style.display = "none";
+        }
+window.history.replaceState({}, 
+    document.title, "/reservation/");
+
+    }, 2000);
+</script>
+
+
+
+{% endblock %}
+
+</body>
+</html>

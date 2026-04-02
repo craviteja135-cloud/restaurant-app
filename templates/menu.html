@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Our Menu</h1>
+{% if items %}
+    <div class="menu-container">
+        {% for item in items %}
+            <div class="menu-item">
+                <div class="menu-card">
+                    <a href=""><img src="{{ item.image.url }}" alt="{{ item.name }}"></a>
+                    <div class="menu-card-body">
+                       <h5>{{ item.name }}</h5>
+                       <p class="card-text">{{ item.description }}</p>
+                       <p><strong>Category:</strong> {{ item.category }}</p>
+                       <p class="text-success"><strong>₹{{ item.price }}</strong></p>
+                       <a href="{% url 'payment' %}?item_id={{ item.id }}" class="btn btn-danger">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+      <h4 class="text-center text-danger mt-4">No items found</h4>
+{% endif %}
+</div>
+
+
+{% endblock %}
+</body>
+</html>

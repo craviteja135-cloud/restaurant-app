@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container text-center mt-5">
+    <h1 class="hero-title">Welcome to Spice Garden 🍽️</h1>
+    <p class="hero-subtitle">Authentic Indian Food in Ongole</p>
+    <a href="/reservation/" class="btn btn-warning hero-button">Book Table</a>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Popular Dishes</h2>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Chicken Biryani</h5>
+                    <p class="card-text">₹250</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Paneer Butter Masala</h5>
+                    <p class="card-text">₹200</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Butter Naan</h5>
+                    <p class="card-text">₹20</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

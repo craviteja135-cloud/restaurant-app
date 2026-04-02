@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <style>
+    body{
+    font-family: Arial;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    margin: 0;
+}
+
+.payment-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.payment-box{
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 320px;
+}
+
+.price{
+    font-size: 24px;
+    color: green;
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#pay-btn{
+    background-color: #ffc107;
+}
+
+.demo-btn{
+    background-color: #28a745;
+    color: white;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+.razor-container{
+    margin-left: 350px;
+    margin-top: 100px;
+}
+    </style>
+</head>
+<body>
+<div class="razor-container">
+  <div class="payment-box">
+    <h2>Complete Payment</h2>
+
+    <p class="price">Amount: ${{ display_amount }}</p>
+  </div>
+
+  <button id="pay-btn">Pay Now</button>
+
+  <button class="demo-btn" onclick="window.location.href='/payment_success/'">Demo Success</button>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+var options = {
+    "key": "{{ key }}",
+    "amount": "{{ amount }}",
+    "currency": "INR",
+    "name": "Spice Garden",
+    "description": "Order Payment",
+    "order_id": "{{ order_id }}",
+
+    "handler": function (response){
+        alert("Payment Successful!");
+    },
+
+    "theme": {
+        "color": "#d4a017"
+    }
+};
+
+var rzp = new Razorpay(options);
+
+document.getElementById('pay-btn').onclick = function(e){
+    rzp.open();
+    e.preventDefault();
+}
+</script>
+
+</body>
+</html>
