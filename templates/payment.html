@@ -92,10 +92,10 @@ var options = {
     }
 };
 
-var rzp = new Razorpay(options);
+var razor = new Razorpay(options);
 
 document.getElementById('pay-btn').onclick = function(e){
-    rzp.open();
+    razor.open();
     e.preventDefault();
 }
 </script>

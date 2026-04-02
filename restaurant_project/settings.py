@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7ep^=#p$f87@e5r^3l$dat=&3p^40qehynfu@yzds9cv%32ih_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -115,19 +115,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-import os
+
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR / "staticfiles")
-
-
 STATICFILES_DIRS = [
-    'static',
+    BASE_DIR / "static",
 ]
 
-import os
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join (BASE_DIR , 'media')
+MEDIA_ROOT = BASE_DIR / "media"
 
 RAZORPAY_KEY_ID = "rzp_test_SXrNfoYuatXBCO"
 RAZORPAY_KEY_SECRET = "JggZotdurUl6HTW2Z4snyafN"
