@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect,HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Contact, MenuItem, Reservation
 from django.db.models import Q
 import razorpay
