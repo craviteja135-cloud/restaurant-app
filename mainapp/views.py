@@ -12,7 +12,7 @@ from .models import MenuItem
 from django.contrib.auth.models import User
 
 # Create your views here.
-def create_user(request):
+def create_admin(request):
     if not User.objects.filter(username='ravi').exists():
         User.objects.create_superuser(
             username='ravi',
