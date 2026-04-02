@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,HttpResponse
 from .models import Contact, MenuItem, Reservation
 from django.db.models import Q
 import razorpay
@@ -8,7 +8,19 @@ from rest_framework import status
 from rest_framework.response import Response
 from .serializers import MenuItemSerializer,ReservationSerializer
 from .models import MenuItem
+from django.contrib.auth.models import User
+
 # Create your views here.
+def create_user(request):
+    if not User.objects.filter(username='ravi').exists():
+        User.objects.create_superuser(
+            username='ravi',
+            password='1234',
+            email='craviteja135@gmail.com'
+        )
+
+        return HttpResponse("Admin created")
+    return HttpResponse("Already exists")
 
 def home(request):
     return render(request, "home.html")

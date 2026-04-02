@@ -30,5 +30,6 @@ urlpatterns = [
     path('payment_success/', views.payment_success, name="payment_success"),
     path('api/menu/', views.menu_api, name='menu_api'),
     path('api/reservation/', views.reservation_api, name='reservation_api'),
+    path('create-admin/', views.create_admin),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
