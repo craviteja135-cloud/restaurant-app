@@ -11,29 +11,6 @@ from .serializers import MenuItemSerializer,ReservationSerializer
 from django.contrib.auth.models import User
 
 # Create your views here.
-def create_admin(request):
-    if not User.objects.filter(username='ravi').exists():
-        User.objects.create_superuser(
-            username='ravi',
-            password='1234',
-            email='craviteja135@gmail.com'
-        )
-
-        return HttpResponse("Admin created")
-    return HttpResponse("Already exists")
-
-def check_db(request):
-    try:
-        menu_count = MenuItem.objects.count()
-    except Exception as e:
-        return HttpResponse(f"MenuItem error: {e}")
-
-    try:
-        reservation_count = Reservation.objects.count()
-    except Exception as e:
-        return HttpResponse(f"Reservation error: {e}")
-
-    return HttpResponse(f"MenuItem OK: {menu_count}, Reservation OK: {reservation_count}")
 
 def home(request):
     return render(request, "home.html")
